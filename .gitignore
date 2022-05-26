@@ -8,6 +8,7 @@
 !/adm_my_files/config_example.php
 !/adm_my_files/.htaccess
 !/adm_my_files/index.html
+/adm_themes/oxpuk
 
 # Only allow commit of official plugins
 /adm_plugins/*
