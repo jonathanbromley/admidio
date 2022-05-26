@@ -1,5 +1,6 @@
 # NEVER commit your own config with your user-credentials
 /adm_my_files/config.php
+/adm_themes/oxpuk
 
 # Don't commit your own stuff
 /adm_my_files/*
