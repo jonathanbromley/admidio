@@ -79,6 +79,14 @@ function createUserObjectFromPost()
     $userStatement = $gDb->queryPrepared($sql, array($loginname));
 
     if ($userStatement->rowCount() === 0) {
+      $sql = 'SELECT usr_id FROM
+              (' . TBL_USER_FIELDS . ' JOIN ' . TBL_USER_DATA . ' ON (usf_id=usd_usf_id AND usf_name_intern=?))
+              JOIN ' . TBL_USERS . ' ON (usr_id = usd_usr_id)
+              WHERE (UPPER(usd_value) = UPPER(?))';
+            $userStatement = $gDb->queryPrepared($sql, array('EMAIL', $loginname));
+    }
+
+    if ($userStatement->rowCount() === 0) {
         $gLogger->warning('AUTHENTICATION: Incorrect username/password!', array(
             'username' => $loginname,
             'password' => '******'

@@ -36,7 +36,7 @@ $form = new HtmlForm('login_form', ADMIDIO_URL.'/adm_program/system/login_check.
 
 $form->addInput(
     'usr_login_name',
-    $gL10n->get('SYS_USERNAME'),
+    /*$gL10n->get('SYS_USERNAME')*/ 'Username or email',
     '',
     array('maxLength' => 254, 'property' => HtmlForm::FIELD_REQUIRED, 'class' => 'form-control-small')
 );
@@ -77,7 +77,7 @@ if ($gSettingsManager->getBool('registration_enable_module')) {
 }
 
 // show link if user has login problems
-if ($gSettingsManager->getBool('enable_password_recovery') && $gSettingsManager->getBool('enable_system_mails')) {
+if ($gSettingsManager->getBool('enable_password_recovery') && $gSettingsManager->getBool('system_notifications_enabled')) {
     // request to reset the password
     $forgotPasswordLink = ADMIDIO_URL.FOLDER_SYSTEM.'/password_reset.php';
 } elseif ($gSettingsManager->getBool('enable_mail_module') && $roleAdministrator->getValue('rol_mail_this_role') == 3) {
