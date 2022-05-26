@@ -36,7 +36,7 @@ $form = new HtmlForm('login_form', ADMIDIO_URL.'/adm_program/system/login_check.
 
 $form->addInput(
     'usr_login_name',
-    $gL10n->get('SYS_USERNAME'),
+    /*$gL10n->get('SYS_USERNAME')*/ 'Username or email',
     '',
     array('maxLength' => 254, 'property' => HtmlForm::FIELD_REQUIRED, 'class' => 'form-control-small')
 );
